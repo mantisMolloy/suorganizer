@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Tag(models.Model):
     name = models.CharField(
         max_length=31,
@@ -10,8 +11,10 @@ class Tag(models.Model):
         unique=True,
         help_text='A label for URL config.'
     )
+
     def __str__(self):
         return self.name
+
 
 class Startup(models.Model):
     name = models.CharField(
@@ -28,8 +31,10 @@ class Startup(models.Model):
     contact = models.EmailField()
     website = models.URLField()
     tags = models.ManyToManyField(Tag)
+
     def __str__(self):
         return self.name
+
 
 class NewsLink(models.Model):
     title = models.CharField(max_length=63)
@@ -37,5 +42,6 @@ class NewsLink(models.Model):
     link = models.URLField(max_length=255)
     startup = models.ForeignKey(Startup)
     tags = models.ManyToManyField(Tag)
+
     def __str__(self):
         return "{}: {}".format(self.startup, self.title)

@@ -1,6 +1,7 @@
 from django.db import models
 from organizer.models import Startup, Tag
 
+
 class Post(models.Model):
     title = models.CharField(max_length=64)
     slug = models.SlugField(
@@ -11,7 +12,7 @@ class Post(models.Model):
     text = models.TextField()
     pub_date = models.DateField(
         'date published',
-         auto_now_add=True
+        auto_now_add=True
     )
     startup = models.ManyToManyField(
         Startup,
@@ -21,5 +22,6 @@ class Post(models.Model):
         Tag,
         related_name='blog_post'
     )
+
     def __str__(self):
-        return "{}: {}",format(self.title, self.pub_date.strftime('%Y-%m-%d'))
+        return "{}: {}".format(self.title, self.pub_date.strftime('%Y-%m-%d'))
