@@ -6,7 +6,7 @@
 {%  block content %}
 <h2>{{ tag.name|title}}  </h2>
 
-{%  if tag.startup_set.all %}
+    {%  if tag.startup_set.all %}
     <section>
     <p>
         Tag is associated with
@@ -22,9 +22,9 @@
           {% endfor %}
       </ul>
     </section>
-{% else %}
+    {% else %}
     <p>This tag is not related to any startups</p>
-{% endif %}
+    {% endif %}
 
 {% if tag.blog_posts.all %}
     <section>
@@ -34,6 +34,7 @@
                <li>
                    <a href="">{{ post.title|title }}</a>
                </li>
+               {% endfor %}
            </ul>
     </section>
 {% else %}

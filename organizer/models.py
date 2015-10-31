@@ -39,7 +39,7 @@ class Startup(models.Model):
         return self.name
 
     class Meta:
-        ordering =['name']
+        ordering = ['name']
         get_latest_by = 'founded_date'
 
 
