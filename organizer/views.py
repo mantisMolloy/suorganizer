@@ -1,8 +1,8 @@
-from organizer.models import Tag
+from organizer.models import *
 from django.shortcuts import get_object_or_404, render
 
 
-def homepage(request):
+def tag_list(request):
     return render(
         request,
         'organizer/tag_list.html',
@@ -16,4 +16,21 @@ def tag_detail(request, slug):
         request,
         'organizer/tag_detail.html',
         {'tag': tag}
+    )
+
+
+def startup_list(request):
+    return render(
+        request,
+        'organizer/startup_list.html',
+        {'startup_list': Startup.objects.all()}
+    )
+
+
+def startup_detail(request, slug):
+    startup = Startup.objects.get(slug__iexact=slug)
+    return render(
+        request,
+        'organizer/startup_detail.html',
+        {'startup': startup},
     )
