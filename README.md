@@ -1,0 +1,3 @@
+# suorganizer
+
+Django Project
